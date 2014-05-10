@@ -1376,4 +1376,11 @@ public final class Quaternion implements Savable, Cloneable, java.io.Serializabl
             throw new AssertionError(); // can not happen
         }
     }
+
+	public Vector3f toAxis(int i)
+	{
+		Vector3f[] v = new Vector3f[3];
+		toAxes(v);
+		return v[i];
+	}
 }
