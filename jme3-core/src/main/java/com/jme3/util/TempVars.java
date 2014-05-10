@@ -47,7 +47,12 @@ import java.util.ArrayList;
  * This returns an available instance of the TempVar class ensuring this 
  * particular instance is never used elsewhere in the mean time.
  */
-public class TempVars {
+public class TempVars implements AutoCloseable {
+
+		public void close()
+		{
+				release();
+		}
 
     /**
      * Allow X instances of TempVars in a single thread.
