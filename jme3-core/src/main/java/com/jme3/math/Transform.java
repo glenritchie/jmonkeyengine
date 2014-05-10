@@ -73,7 +73,12 @@ public final class Transform implements Savable, Cloneable, java.io.Serializable
         this(Vector3f.ZERO, Quaternion.IDENTITY);
     }
 
-    /**
+    public Transform(Transform transform)
+	{
+    	this(transform.getTranslation().clone(), transform.getRotation().clone());
+	}
+
+	/**
      * Sets this rotation to the given Quaternion value.
      * @param rot The new rotation for this matrix.
      * @return this
