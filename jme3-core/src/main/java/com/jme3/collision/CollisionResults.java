@@ -34,6 +34,7 @@ package com.jme3.collision;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
+import java.util.stream.Stream;
 
 /**
  * <code>CollisionResults</code> is a collection returned as a result of a 
@@ -131,5 +132,14 @@ public class CollisionResults implements Iterable<CollisionResult> {
         sb.append("]");
         return sb.toString();
     }
+
+	public Stream<CollisionResult> stream()
+	{
+		Stream<CollisionResult> stream = results.stream();
+		if (!sorted)
+			stream = stream.sorted();
+		return stream;
+		
+	}
 
 }
