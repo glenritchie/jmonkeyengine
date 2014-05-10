@@ -45,4 +45,12 @@ public class AssetNotFoundException extends RuntimeException {
     public AssetNotFoundException(String message, Exception ex){
         super(message, ex);
     }
+
+    
+    @Override
+    public String getLocalizedMessage()
+    {
+    	return "Asset Not Found: " + super.getLocalizedMessage();
+    }
+
 }
