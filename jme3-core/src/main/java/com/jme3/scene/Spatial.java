@@ -1512,4 +1512,9 @@ public abstract class Spatial implements Savable, Cloneable, Collidable, Cloneab
     }
 
     protected abstract void breadthFirstTraversal(SceneGraphVisitor visitor, Queue<Spatial> queue);
+
+	public Collection<Control> getControls()
+	{
+		return Collections.unmodifiableCollection(controls);
+	}
 }
