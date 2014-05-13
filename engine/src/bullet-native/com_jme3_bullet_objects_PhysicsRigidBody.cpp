@@ -41,6 +41,29 @@
 extern "C" {
 #endif
 
+
+ 	/*
+     * Class:     com_jme3_bullet_objects_PhysicsRigidBody
+     * Method:    createRigidBody
+     * Signature: (FJJ)J
+     */
+    JNIEXPORT void JNICALL Java_com_jme3_bullet_objects_PhysicsRigidBody_predictIntegratedTransform
+    (JNIEnv *env, jobject object, jlong bodyId, jfloat timeStep, jobject rotation, jobject translation) {
+		btRigidBody* body = reinterpret_cast<btRigidBody*>(bodyId);
+        if (body == NULL) {
+            jclass newExc = env->FindClass("java/lang/NullPointerException");
+            env->ThrowNew(newExc, "The native object does not exist.");
+            return;
+        }
+
+		btTransform predictedTransform;
+		body->predictIntegratedTransform(timeStep, predictedTransform);
+		
+		jmeBulletUtil::convert(env, &predictedTransform.getBasis(), rotation);
+		jmeBulletUtil::convert(env, &predictedTransform.getOrigin(), translation);
+        //jmeBulletUtil::convert(env, &body->getWorldTransform().getOrigin(), value);
+		}
+
     /*
      * Class:     com_jme3_bullet_objects_PhysicsRigidBody
      * Method:    createRigidBody

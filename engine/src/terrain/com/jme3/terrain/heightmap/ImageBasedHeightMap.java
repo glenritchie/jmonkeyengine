@@ -90,7 +90,7 @@ public class ImageBasedHeightMap extends AbstractHeightMap implements ImageHeigh
     }
     
     protected float calculateHeight(ColorRGBA color) {
-        return (float) (0.299 * color.r + 0.587 * color.g + 0.114 * color.b);
+        return calculateHeight(color.r, color.g, color.b);
     }
     
     protected ImageRaster getImageRaster() {

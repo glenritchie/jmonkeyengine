@@ -100,6 +100,17 @@ public final class Quaternion implements Savable, Cloneable, java.io.Serializabl
         this.w = w;
     }
 
+	/**
+     * New quat from a 3x3 rotation matrix
+     * @param rotation 
+     */
+    public Quaternion(Matrix3f rotation)
+		{
+  	  	fromRotationMatrix(rotation);	
+    	}
+
+
+
     public float getX() {
         return x;
     }

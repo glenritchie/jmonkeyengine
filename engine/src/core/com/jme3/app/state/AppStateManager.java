@@ -34,7 +34,10 @@ package com.jme3.app.state;
 import com.jme3.app.Application;
 import com.jme3.renderer.RenderManager;
 import com.jme3.util.SafeArrayList;
+
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -118,6 +121,16 @@ public class AppStateManager {
             return states.getArray();
         }
     }
+    
+    public Collection<AppState> getAppStates()
+    {
+    	synchronized (states)
+			{
+  	  		return Collections.unmodifiableCollection(Collections.synchronizedCollection(states));
+			}
+    }
+    
+
 
     /**
      * Attach a state to the AppStateManager, the same state cannot be attached

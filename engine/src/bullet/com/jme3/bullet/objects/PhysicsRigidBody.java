@@ -43,7 +43,9 @@ import com.jme3.export.JmeImporter;
 import com.jme3.export.OutputCapsule;
 import com.jme3.math.Matrix3f;
 import com.jme3.math.Quaternion;
+import com.jme3.math.Transform;
 import com.jme3.math.Vector3f;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -107,6 +109,33 @@ public class PhysicsRigidBody extends PhysicsCollisionObject {
 
     protected void preRebuild() {
     }
+
+
+		/** Predict the new transform for the body based on it's current angular and linear velocities
+     * 
+     * @param timeStep The timestep to predict ahead of time
+     * @param transformOut If not null will be set to the predicted transform
+     * @return The predicted transform.
+     */
+    public Transform predictIntegratedTransform(float timeStep, Transform transformOut)
+    {
+    	// setup some storage for returns from the native call
+    	Matrix3f rotation = new Matrix3f();
+		Vector3f translation = new Vector3f();
+		predictIntegratedTransform(this.objectId, timeStep, rotation, translation);
+
+		// turn them into a transform
+		Quaternion quat = new Quaternion(rotation);
+		
+    	Transform trans = new Transform(translation, quat);
+		
+    	if (transformOut != null)
+    		transformOut.set(trans);
+    	return trans;
+    }
+    
+    private native void predictIntegratedTransform(long objectId, float timeStep, Matrix3f rotation, Vector3f translation);
+
 
     private native long createRigidBody(float mass, long motionStateId, long collisionShapeId);
 

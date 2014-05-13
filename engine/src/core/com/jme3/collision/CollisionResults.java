@@ -34,6 +34,7 @@ package com.jme3.collision;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
+import java.util.stream.Stream;
 
 /**
  * <code>CollisionResults</code> is a collection returned as a result of a 
@@ -98,6 +99,16 @@ public class CollisionResults implements Iterable<CollisionResult> {
         }
 
         return results.get(size()-1);
+    }
+
+ 		/** Return a sorted stream of the collision results */
+    public Stream<CollisionResult> stream()
+    {
+    	Stream<CollisionResult> stream = results.stream();
+    	if (!sorted)
+       		return stream.sorted();
+    	else
+    		return stream;
     }
 
     public CollisionResult getCollision(int index){

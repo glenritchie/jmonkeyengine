@@ -781,10 +781,10 @@ public class PhysicsSpace {
      * Performs a ray collision test and returns the results as a list of
      * PhysicsRayTestResults
      */
-    public List rayTest(Vector3f from, Vector3f to) {
-        List results = new LinkedList();
+    public List<PhysicsRayTestResult> rayTest(Vector3f from, Vector3f to) {
+        List<PhysicsRayTestResult> results = new LinkedList<>();
         rayTest(from, to, results);
-        return (List<PhysicsRayTestResult>) results;
+        return results;
     }
 
     /**

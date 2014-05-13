@@ -194,6 +194,14 @@ public abstract class Spatial implements Savable, Cloneable, Collidable, Cloneab
         return key;
     }
 
+
+	public Collection<Control> getControls()
+	{
+		return Collections.unmodifiableCollection(controls);
+	}
+
+
+
     /**
      * Indicate that the transform of this spatial has changed and that
      * a refresh is required.

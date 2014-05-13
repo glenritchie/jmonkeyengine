@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="engine/src/core"/>
+	<classpathentry kind="src" path="engine/src/bullet"/>
+	<classpathentry kind="src" path="engine/src/bullet-common"/>
+	<classpathentry kind="src" path="engine/src/blender"/>
+	<classpathentry kind="src" path="engine/src/core-data"/>
+	<classpathentry kind="src" path="engine/src/jogg"/>
+	<classpathentry kind="src" path="engine/src/tools"/>
+	<classpathentry kind="src" path="engine/src/jogl"/>
+	<classpathentry kind="src" path="engine/src/lwjgl"/>
+	<classpathentry kind="src" path="engine/src/terrain"/>
+	<classpathentry kind="src" path="engine/src/networking"/>
+	<classpathentry kind="src" path="engine/src/desktop"/>
+	<classpathentry kind="src" path="engine/src/core-effects"/>
+	<classpathentry kind="src" path="engine/src/xml"/>
+	<classpathentry kind="src" path="engine/src/openal-soft-native"/>
+	<classpathentry kind="src" path="engine/src/ogre"/>
+	<classpathentry kind="src" path="engine/src/niftygui"/>
+	<classpathentry kind="src" path="engine/src/core-plugins"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="engine/lib/lwjgl/lwjgl.jar"/>
+	<classpathentry kind="lib" path="engine/lib/jogl/joal.jar"/>
+	<classpathentry kind="lib" path="engine/lib/jogl/jogl-all.jar"/>
+	<classpathentry kind="lib" path="engine/lib/jogl/gluegen-rt.jar"/>
+	<classpathentry kind="lib" path="engine/lib/lwjgl/jinput.jar"/>
+	<classpathentry kind="lib" path="engine/lib/jogg/j-ogg-oggd.jar"/>
+	<classpathentry kind="lib" path="engine/lib/niftygui/nifty.jar"/>
+	<classpathentry kind="lib" path="engine/lib/jogg/j-ogg-vorbisd.jar"/>
+	<classpathentry kind="lib" path="engine/lib/niftygui/nifty-default-controls.jar"/>
+	<classpathentry kind="lib" path="engine/lib/niftygui/xmlpull-xpp3.jar"/>
+	<classpathentry kind="lib" path="engine/lib/openal-soft/jME3-openal-soft-natives-android.jar"/>
+	<classpathentry kind="lib" path="engine/lib/swing-layout/swing-layout-1.0.4.jar"/>
+	<classpathentry kind="lib" path="engine/lib/swingext/swing-layout-1.0.3.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

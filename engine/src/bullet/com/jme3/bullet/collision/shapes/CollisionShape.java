@@ -107,6 +107,15 @@ public abstract class CollisionShape implements Savable {
     
     private native void setMargin(long objectId, float margin);
 
+ 		public Vector3f getLocalInertia(float mass)
+    {
+    	Vector3f v = new Vector3f();
+    	calculateLocalInertia(this.objectId, mass, v);
+    	return v;
+    }
+
+    private native void calculateLocalInertia(long objectId, float mass, Vector3f inertia);
+
     public void write(JmeExporter ex) throws IOException {
         OutputCapsule capsule = ex.getCapsule(this);
         capsule.write(scale, "scale", new Vector3f(1, 1, 1));

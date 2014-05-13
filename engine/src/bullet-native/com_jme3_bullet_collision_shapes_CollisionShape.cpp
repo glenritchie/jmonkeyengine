@@ -40,6 +40,29 @@
 extern "C" {
 #endif
 
+
+		/*
+     * Class:     com_jme3_bullet_collision_shapes_CollisionShape
+     * Method:    calculateLocalInertia
+     */
+    JNIEXPORT void JNICALL Java_com_jme3_bullet_collision_shapes_CollisionShape_calculateLocalInertia
+    (JNIEnv * env, jobject object, jlong shapeId, jfloat mass, jobject inertia) {
+        
+		btCollisionShape* shape = reinterpret_cast<btCollisionShape*>(shapeId);
+        if (shape == NULL) {
+           jclass newExc = env->FindClass("java/lang/NullPointerException");
+            env->ThrowNew(newExc, "The native object does not exist.");
+           return;
+        }
+		
+		btVector3 localInertia = btVector3();
+
+        shape->calculateLocalInertia(mass, localInertia);
+		jmeBulletUtil::convert(env, &localInertia, inertia);
+		//jmeBulletUtil::convert(env, &body->getWorldTransform().getOrigin(), inertia);
+		//return shape->getMargin();
+    }
+
     /*
      * Class:     com_jme3_bullet_collision_shapes_CollisionShape
      * Method:    getMargin
