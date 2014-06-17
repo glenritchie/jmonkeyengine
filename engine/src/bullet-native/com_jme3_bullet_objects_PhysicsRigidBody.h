@@ -43,6 +43,14 @@ extern "C" {
 #define com_jme3_bullet_objects_PhysicsRigidBody_COLLISION_GROUP_16 32768L
 /*
  * Class:     com_jme3_bullet_objects_PhysicsRigidBody
+ * Method:    predictIntegratedTransform
+ * Signature: (JFLcom/jme3/math/Matrix3f;Lcom/jme3/math/Vector3f;)V
+ */
+JNIEXPORT void JNICALL Java_com_jme3_bullet_objects_PhysicsRigidBody_predictIntegratedTransform
+  (JNIEnv *, jobject, jlong, jfloat, jobject, jobject);
+
+/*
+ * Class:     com_jme3_bullet_objects_PhysicsRigidBody
  * Method:    createRigidBody
  * Signature: (FJJ)J
  */

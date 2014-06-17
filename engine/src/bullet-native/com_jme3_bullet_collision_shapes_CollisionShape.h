@@ -33,6 +33,14 @@ JNIEXPORT void JNICALL Java_com_jme3_bullet_collision_shapes_CollisionShape_setM
 
 /*
  * Class:     com_jme3_bullet_collision_shapes_CollisionShape
+ * Method:    calculateLocalInertia
+ * Signature: (JFLcom/jme3/math/Vector3f;)V
+ */
+JNIEXPORT void JNICALL Java_com_jme3_bullet_collision_shapes_CollisionShape_calculateLocalInertia
+  (JNIEnv *, jobject, jlong, jfloat, jobject);
+
+/*
+ * Class:     com_jme3_bullet_collision_shapes_CollisionShape
  * Method:    finalizeNative
  * Signature: (J)V
  */
