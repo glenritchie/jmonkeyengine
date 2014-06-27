@@ -397,7 +397,7 @@
         </copy>
 
         <echo>Copying Javadoc</echo>
-        <zip destfile="${dist.dir}/jMonkeyEngine3-javadoc.zip">
+        <zip destfile="${dist.dir}/jMonkeyEngine3-javadoc.zip" whenempty="create">
             <zipfileset dir="${dist.dir}/javadoc/"/>
         </zip>
         <copy file="${dist.dir}/jMonkeyEngine3-javadoc.zip" toDir="${jmp_dir}/jme3-project-baselibs/release/libs/" overwrite="true" failonerror="true" verbose="false"/>
