@@ -364,12 +364,23 @@ public class PhysicsSpace {
 //        synchronized (collisionEvents) {
         for (Iterator<PhysicsCollisionEvent> it = collisionEvents.iterator(); it.hasNext();) {
             PhysicsCollisionEvent physicsCollisionEvent = it.next();
-            for (PhysicsCollisionListener listener : collisionListeners) {
+
+					// if a collision was recorded, but the object(s) involved were removed before update() was called,
+					// don't call the collision listener for it since it no longer "exists"
+					PhysicsCollisionObject nodeA = physicsCollisionEvent.getObjectA();
+					PhysicsCollisionObject nodeB = physicsCollisionEvent.getObjectB();
+					if (!physicsBodies.containsKey(nodeA.getObjectId()) || !physicsBodies.containsKey(nodeB.getObjectId())) {
+						logger.fine("Node A or B no longer exists");
+					}
+					else
+					{
+          	for (PhysicsCollisionListener listener : collisionListeners) {
                 listener.collision(physicsCollisionEvent);
             }
-            //recycle events
-            eventFactory.recycle(physicsCollisionEvent);
-            it.remove();
+          }
+          //recycle events
+          eventFactory.recycle(physicsCollisionEvent);
+          it.remove();
         }
 //        }
     }
