@@ -82,7 +82,7 @@ public class SphereCollisionShape extends CollisionShape {
      */
     @Override
     public void setScale(Vector3f scale) {
-        Logger.getLogger(this.getClass().getName()).log(Level.WARNING, "SphereCollisionShape cannot be scaled");
+        Logger.getLogger(this.getClass().getName()).log(Level.INFO, "SphereCollisionShape cannot be scaled");
     }
 
     protected void createShape() {
